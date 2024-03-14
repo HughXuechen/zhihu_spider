@@ -11,17 +11,7 @@ import os
 import threading
 
 # 填入爬取评论目标id
-pins = ['1459060852','844773892','1075120156']
-
-# 炫酷
-def title():
-    print("                                        ")
-    print(colorama.Fore.BLUE + "|    | \ _ / | \\ ___ /(/  \\_ __ _| |")
-    print(colorama.Fore.BLUE + "|____|__\_/__|  \\ __/( /__\\ _    | |")
-    print(colorama.Fore.BLUE + "|    |__/ \__|   \\ /(  /  \\      | |   ")
-    print(colorama.Fore.BLUE + "|    | /   \ |    |(___/_ \\  spider_ZhiHu_|\\_\\")
-    print(colorama.Fore.YELLOW + "                                 writer: yuejinjianke")
-
+pins = ['3347743322']
 
 # 获取数据
 def get_data(pin,file_path):
@@ -68,7 +58,7 @@ def get_data(pin,file_path):
              for comment in comments:
                  list_append_1(nickname_list,gender_list,place_list,user_id_list,comment_time_list,content_list,content_level_list,comment)
                  comment_num += 1
-             # print(nickname_list,gender_list,place_list,user_id_list,comment_time_list,content_list,content_level_list)
+                 #print(nickname_list,gender_list,place_list,user_id_list,comment_time_list,content_list,content_level_list)
                  if int(comment['child_comment_count']):
                     for child_comment in comment['child_comments']:
                         child_num = 0
@@ -154,6 +144,5 @@ def multi_thread(pins):
 
 
 if __name__ == '__main__':
-    title()
     print(colorama.Fore.GREEN + '[info] 开始爬取')
     multi_thread(pins)
